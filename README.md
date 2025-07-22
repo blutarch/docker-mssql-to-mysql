@@ -12,13 +12,13 @@ This is a work in progress, feel free to make some changes to the process below 
 
 3. Run `git fetch` inside the "dbdump" repo then checkout the `linux/dbdump` branch.
 
-4. Clone the [migrations](https://github.com/vanilla/migrations) with your other repositories (e.g. `~/workspace/repos`).
+4. If you haven't already, clone this repo with your other repositories (e.g. `~/workspace/repos`).
 
-5. Navigate inside the `docker-mssql` folder of the "migrations" repository and run `docker build . -t sql_server  --platform linux/amd64`.
+5. Navigate inside this repository and run `docker build . -t sql_server  --platform linux/amd64`.
 
 ## Running the MSSQL server
 
-Inside the `.../migrations/docker-mssql` folder, run the command below.
+Inside this repository, run the command below.
 
 **IMPORTANT: You need to replace the `src` with the [DATA_DIR] path.**
 
@@ -37,7 +37,7 @@ Congratulations, you now have a container running MSSQL on your machine!
 This can be done with the CLI using the [sqlcmd command](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-backup-and-restore-database?view=sql-server-ver15).
 
 1. Move the `.bak` file into your [DATA_DIR].
-2. Copy the `restore.sql` from the `.../migrations/docker-mssql` into your [DATA_DIR].
+2. Copy the `restore.sql` from this repository into your [DATA_DIR].
 3. Modify the `@NewDatabaseName` and `@TemplateBackups`. Your [DATA_DIR] is mounted as `/hostvolume`, so do not remove it from the path when setting `@TemplateBackups`.
 4. Run `docker ps` and retrieve the name of your running container.
 5. Log into the container by running the command below.
